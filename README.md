@@ -37,16 +37,16 @@ Here's a breakdown of how it was built:
 
 ## Where we deployed to/contract details
 
-We created and deployed our smart contracts on the Lukso testnet chain. 
+We created and deployed our smart contracts on the Avalanche testnet chain. 
 
 ### Avalanche Testnet
 
-1. CommunityNetwork contract 0xb5c93ACAc8d4499293e81Fb07298c29d1DA4a455 - [View source code](https://github.com/degencodebeast/RejuvenateAI-lukso/blob/main/smart-contracts/contracts/CommunityNetwork.sol) | [View on avalanche](https://explorer.execution.testnet.lukso.network/address/0xb5c93ACAc8d4499293e81Fb07298c29d1DA4a455)
+1. CommunityNetwork contract 0xb5c93ACAc8d4499293e81Fb07298c29d1DA4a455 - [View source code](https://github.com/degencodebeast/RejuvenateAI-lukso/blob/main/smart-contracts/contracts/CommunityNetwork.sol) | [View on Avalanche](https://explorer.execution.testnet.lukso.network/address/0xb5c93ACAc8d4499293e81Fb07298c29d1DA4a455)
 
-2. Treasury contract 0x192F0e1D589bEB01b5FFEF701a0a5B7049FFFa34 - [View source code](https://github.com/degencodebeast/RejuvenateAI-lukso/blob/main/smart-contracts/contracts/Treasury.sol) | [View on avalanche](https://explorer.execution.testnet.lukso.network/address/0x192F0e1D589bEB01b5FFEF701a0a5B7049FFFa34)
+2. Treasury contract 0x192F0e1D589bEB01b5FFEF701a0a5B7049FFFa34 - [View source code](https://github.com/degencodebeast/RejuvenateAI-lukso/blob/main/smart-contracts/contracts/Treasury.sol) | [View on Avalanche](https://explorer.execution.testnet.lukso.network/address/0x192F0e1D589bEB01b5FFEF701a0a5B7049FFFa34)
 
-3. User NFT contract 0x88cF82a3EfE628B35e5eca8817681f94F5ed15Df - [View source code](https://github.com/degencodebeast/RejuvenateAI-lukso/blob/main/smart-contracts/contracts/UserNFT.sol) | [View on avalanche](https://explorer.execution.testnet.lukso.network/address/0x88cF82a3EfE628B35e5eca8817681f94F5ed15Df)
+3. User NFT contract 0x88cF82a3EfE628B35e5eca8817681f94F5ed15Df - [View source code](https://github.com/degencodebeast/RejuvenateAI-lukso/blob/main/smart-contracts/contracts/UserNFT.sol) | [View on Avalanche](https://explorer.execution.testnet.lukso.network/address/0x88cF82a3EfE628B35e5eca8817681f94F5ed15Df)
 
-4. Nutritionist NFT contract 0x628ff8D815a6e3Eb6Fe84BfeC3c47692729ba3F3 - [View source code](https://github.com/degencodebeast/RejuvenateAI-lukso/blob/main/smart-contracts/contracts/NutritionistNFT.sol) | [View on avalanche](https://explorer.execution.testnet.lukso.network/address/0x628ff8D815a6e3Eb6Fe84BfeC3c47692729ba3F3)
+4. Nutritionist NFT contract 0x628ff8D815a6e3Eb6Fe84BfeC3c47692729ba3F3 - [View source code](https://github.com/degencodebeast/RejuvenateAI-lukso/blob/main/smart-contracts/contracts/NutritionistNFT.sol) | [View on Avalanche](https://explorer.execution.testnet.lukso.network/address/0x628ff8D815a6e3Eb6Fe84BfeC3c47692729ba3F3)
 
 
