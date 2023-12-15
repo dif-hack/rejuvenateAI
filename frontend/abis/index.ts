@@ -3,27 +3,12 @@
 // import {abi as nutritionistNftAbi} from "./NutritionistNFT.json";
 // import {abi as userNftAbi} from "./UserNFT.json";
 
-export const communityAbi = [
+export const communityAbi =  [
   {
     "inputs": [
       {
         "internalType": "address",
         "name": "_treasury",
-        "type": "address"
-      },
-      {
-        "internalType": "contract LinkTokenInterface",
-        "name": "_link",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_registrar",
-        "type": "address"
-      },
-      {
-        "internalType": "contract AutomationRegistryInterface",
-        "name": "_registry",
         "type": "address"
       }
     ],
@@ -505,30 +490,6 @@ export const communityAbi = [
   {
     "inputs": [
       {
-        "internalType": "bytes",
-        "name": "",
-        "type": "bytes"
-      }
-    ],
-    "name": "checkUpkeep",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "upkeepNeeded",
-        "type": "bool"
-      },
-      {
-        "internalType": "bytes",
-        "name": "performData",
-        "type": "bytes"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
         "internalType": "string",
         "name": "name",
         "type": "string"
@@ -877,32 +838,6 @@ export const communityAbi = [
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "i_link",
-    "outputs": [
-      {
-        "internalType": "contract LinkTokenInterface",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "i_registry",
-    "outputs": [
-      {
-        "internalType": "contract AutomationRegistryInterface",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "inputs": [
       {
         "internalType": "uint256",
@@ -1075,19 +1010,6 @@ export const communityAbi = [
   {
     "inputs": [
       {
-        "internalType": "bytes",
-        "name": "performData",
-        "type": "bytes"
-      }
-    ],
-    "name": "performUpkeep",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
         "internalType": "string",
         "name": "_title",
         "type": "string"
@@ -1112,54 +1034,6 @@ export const communityAbi = [
     "inputs": [
       {
         "internalType": "string",
-        "name": "name",
-        "type": "string"
-      },
-      {
-        "internalType": "bytes",
-        "name": "encryptedEmail",
-        "type": "bytes"
-      },
-      {
-        "internalType": "address",
-        "name": "upkeepContract",
-        "type": "address"
-      },
-      {
-        "internalType": "uint32",
-        "name": "gasLimit",
-        "type": "uint32"
-      },
-      {
-        "internalType": "address",
-        "name": "adminAddress",
-        "type": "address"
-      },
-      {
-        "internalType": "bytes",
-        "name": "checkData",
-        "type": "bytes"
-      },
-      {
-        "internalType": "uint96",
-        "name": "amount",
-        "type": "uint96"
-      },
-      {
-        "internalType": "uint8",
-        "name": "source",
-        "type": "uint8"
-      }
-    ],
-    "name": "registerAndPredictID",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "string",
         "name": "_userData",
         "type": "string"
       },
@@ -1172,19 +1046,6 @@ export const communityAbi = [
     "name": "registerUser",
     "outputs": [],
     "stateMutability": "payable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "registrar",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
     "type": "function"
   },
   {

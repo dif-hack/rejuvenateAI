@@ -14,15 +14,9 @@ import { useEffect, useState } from "react";
 import { xrpEvm } from '@/utils/constants';
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [xrpEvm],
+  [avalancheFuji],
   [
-    jsonRpcProvider({
-      rpc: (chain) => ({
-        http: `https://rpc-evm-sidechain.xrpl.org
-        `,
-      }),
-    }),
-    //publicProvider()
+    publicProvider()
   ]
 );
 

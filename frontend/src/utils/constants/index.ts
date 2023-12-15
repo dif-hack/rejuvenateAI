@@ -1,7 +1,7 @@
 import { Chain } from "@wagmi/core";
 
 export const appName = 'REJUVENATE_AI';
-export const communityAddr = "0x3A3bc7C19bE0381294d8E7Bd311C123b76b33982"
+export const communityAddr = "0x61b230EB8f636BE7F96134F0922b765B8e86c60D"
 
 export const xrpEvm = {
     id: 1440002,
