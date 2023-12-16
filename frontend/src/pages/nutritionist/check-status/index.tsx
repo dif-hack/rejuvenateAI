@@ -8,6 +8,7 @@ import { communityAbi } from '../../../../abis'
 import { useDebounce } from '@/hooks/useDebounce'
 import { useAppContext } from '@/context/state'
 import { useRouter } from 'next/router'
+import {ethers} from 'ethers'
 
 const NutritionistStatusPage = () => {
     const router=useRouter()
