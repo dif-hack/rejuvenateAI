@@ -14,10 +14,10 @@ const Header = ({ bg = 'transparent' }: { bg?: string }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
 
-  const { setAddress, setEnsName,user } = useAppContext();
+  const { setAddress, setEnsName, user } = useAppContext();
 
-  const { address } = useAccount();
-  const { isConnected } = useAccount();
+  //const { address } = useAccount();
+  const { address, isConnected } = useAccount();
   const { openConnectModal } = useConnectModal();
   
   // const { data: ensName } = useEnsName({
@@ -30,10 +30,10 @@ const Header = ({ bg = 'transparent' }: { bg?: string }) => {
   //   chainId: 421613,
   // });
 
-  useEffect(() => {
-    setAddress(`${address}`);
-    //setEnsName(ensName);
-  }, [address, setAddress]);
+  // useEffect(() => {
+  //   setAddress(`${address}`);
+  //   //setEnsName(ensName);
+  // }, [setAddress]);
 
   const isLoggedin=()=>( user && user?.userAddress!=='');
   return (
