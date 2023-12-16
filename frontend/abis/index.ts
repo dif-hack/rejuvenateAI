@@ -3,7 +3,7 @@
 // import {abi as nutritionistNftAbi} from "./NutritionistNFT.json";
 // import {abi as userNftAbi} from "./UserNFT.json";
 
-export const communityAbi =  [
+export const communityAbi = [
   {
     "inputs": [
       {
@@ -490,6 +490,44 @@ export const communityAbi =  [
   {
     "inputs": [
       {
+        "internalType": "address",
+        "name": "_user",
+        "type": "address"
+      }
+    ],
+    "name": "checkIsMember",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_nutritionist",
+        "type": "address"
+      }
+    ],
+    "name": "checkIsNutritionist",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "string",
         "name": "name",
         "type": "string"
@@ -832,6 +870,25 @@ export const communityAbi =  [
         "internalType": "struct CommunityNetwork.Nutritionist[]",
         "name": "_nutritionists",
         "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_applicant",
+        "type": "address"
+      }
+    ],
+    "name": "getNutritionistApplicantStatus",
+    "outputs": [
+      {
+        "internalType": "enum CommunityNetwork.NutritionistApplicationStatus",
+        "name": "",
+        "type": "uint8"
       }
     ],
     "stateMutability": "view",
