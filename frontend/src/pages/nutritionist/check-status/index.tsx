@@ -1,11 +1,45 @@
 'use client'
+import { communityAddr } from '@/utils/constants'
 import { Box, Button, Flex, Heading, Input, Stack, StackDivider, Text } from '@chakra-ui/react'
 import Head from 'next/head'
 import React, { KeyboardEvent, useState } from 'react'
+import { useContractWrite, usePrepareContractWrite, useWaitForTransaction } from 'wagmi'
+import { communityAbi } from '../../../../abis'
+import { useDebounce } from '@/hooks/useDebounce'
+import { useAppContext } from '@/context/state'
+import { useRouter } from 'next/router'
 
 const NutritionistStatusPage = () => {
+    const router=useRouter()
+    const { user, setUser, allTokensData } = useAppContext();
+    const [amount, setAmount] = useState('0.01');
     const [isSubmitting,setIsSubmitting]=useState(false);
-    const [value,setValue]=useState('');
+    const [addressValue,setAddressValue]=useState('');
+    const debouncedAmount = useDebounce<string>(amount, 500);
+
+  const [cid, setCid] = useState<string>('');
+
+  const { config } =  usePrepareContractWrite({
+    //@ts-ignore
+    address: communityAddr,
+    abi: communityAbi,
+    functionName: 'checkIsApproved',
+    args: [addressValue],
+    //@ts-ignore
+    value: ethers.utils.parseEther(debouncedAmount || '0'),
+  });
+
+  const { write: checkIsApproved, data } = useContractWrite(config);
+
+  const { isLoading } = useWaitForTransaction({
+    hash: data?.hash,
+    onSuccess(tx) {
+        
+      console.log(tx);
+    //   router.push('/member/dashboard');
+    },
+  });
+
 const handleInputKeyup=(evt:KeyboardEvent)=>{
 if(evt.key==='Enter'){
     handleSubmit()
@@ -13,7 +47,12 @@ if(evt.key==='Enter'){
 }
     const handleSubmit=async ()=>{
 setIsSubmitting(true);
-
+try {
+   checkIsApproved?.()
+    setIsSubmitting(false);
+} catch (error) {
+    setIsSubmitting(false);  
+}
 
     }
   return (
@@ -30,8 +69,8 @@ setIsSubmitting(true);
     </Stack>
 <Stack spacing={6}>
 
-    <Input value={value} onChange={(e)=>setValue(e.target.value)} onKeyUp={handleInputKeyup} placeholder='0xb48c794fd8d9.....'/>
-    <Button isDisabled={!value|| isSubmitting} isLoading={isSubmitting} onClick={()=>handleSubmit()}>Continue</Button>
+    <Input value={addressValue} onChange={(e)=>setAddressValue(e.target.value)} onKeyUp={handleInputKeyup} placeholder='0xb48c794fd8d9.....'/>
+    <Button isDisabled={!addressValue|| isSubmitting} isLoading={isSubmitting||isLoading} onClick={()=>handleSubmit()}>Continue</Button>
 </Stack>
 </Stack>
     </Flex>
