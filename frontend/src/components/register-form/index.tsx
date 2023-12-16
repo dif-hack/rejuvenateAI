@@ -94,7 +94,7 @@ const RegisterForm = ({
   const { errors, isValid, isSubmitSuccessful } = formState;
   const [cid, setCid] = useState<string>('');
 
-  const { config } = usePrepareContractWrite({
+  const { config } =  usePrepareContractWrite({
     //@ts-ignore
     address: communityAddr,
     abi: communityAbi,
