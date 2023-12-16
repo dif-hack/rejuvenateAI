@@ -48,7 +48,7 @@ import { useRouter } from "next/router"
         const parts=router.asPath.split('/')
 
         const slug=parts[parts.length -1 ]
-        console.log({router,parts,slug});
+        // console.log({router,parts,slug});
         
         const [article,setArticle]=useState<Article|null>(null )
         
