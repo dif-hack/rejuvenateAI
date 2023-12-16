@@ -6,13 +6,16 @@ import { NutritionistNFT__factory, UserNFT__factory, Treasury__factory, Communit
 //const PRIVATE_KEY = process.env.PRIVATE_KEY || "";
 //const wallet = new ethers.Wallet(PRIVATE_KEY, ethers.provider);
 
-const treasuryAddr = ""
+const treasuryAddr = "0x9E1eF5A92C9Bf97460Cd00C0105979153EA45b27"
+const communityNetworkAddr = "0x3a65168B746766066288B83417329a7F901b5569"
+const userNftAddr = "0x6D919b8dC30BEf41b56Aa8b18b2052c9459F8E9A"
+const nutritionistNftAddr = "0xA39d26482B5c226Fd02A5f3e159C72ee03d63Fc0"
 
 
 const privateKey = process.env.PRIVATE_KEY as string;
 const wallet = new Wallet(privateKey);
 
-const avalancheRpc = "https://api.avax-test.network/ext/bc/C/rpc"
+const pegoRpc = "https://pegorpc.com"
 
 
 // const communityContract = "0x3a65168B746766066288B83417329a7F901b5569"
@@ -68,7 +71,7 @@ async function deployNutritionistNFT(_communityAddr: any) {
 
 async function joinCommunity(_communityAddr: any) {
     
-    const provider = getDefaultProvider(avalancheRpc);
+    const provider = getDefaultProvider(pegoRpc);
     const connectedWallet = wallet.connect(provider);
 
     const communityFactory = new CommunityNetwork__factory(connectedWallet);
@@ -84,19 +87,19 @@ async function joinCommunity(_communityAddr: any) {
 }
 
 async function setupNFTs() {
-    let userNFTAddr = "0x7eF8A514802fe847766142b63D1A2554379EFD27"
-    let nutritionistNFTAddr = "0xa2e92d2f09eE1D5D166Bd4a8789C4C0dfF13708e"
-    let communityAddr = "0x61b230EB8f636BE7F96134F0922b765B8e86c60D"
+    // let userNFTAddr = "0x7eF8A514802fe847766142b63D1A2554379EFD27"
+    // let nutritionistNFTAddr = "0xa2e92d2f09eE1D5D166Bd4a8789C4C0dfF13708e"
+    // let communityAddr = "0x61b230EB8f636BE7F96134F0922b765B8e86c60D"
 
-    const provider = getDefaultProvider(avalancheRpc);
+    const provider = getDefaultProvider(pegoRpc);
     const connectedWallet = wallet.connect(provider);
 
     const communityFactory = new CommunityNetwork__factory(connectedWallet);
-    const community = communityFactory.attach(communityAddr);
+    const community = communityFactory.attach(communityNetworkAddr);
 
     try {
-        console.log("Setting up NFTs for Avalanche")
-        const tx = await community.setNFTs(userNFTAddr, nutritionistNFTAddr);
+        console.log("Setting up NFTs for Pego")
+        const tx = await community.setNFTs(userNftAddr, nutritionistNftAddr);
         await tx.wait();
         console.log("NFTs setup successful")
     }
@@ -110,50 +113,50 @@ async function setupNFTs() {
 
 
 async function deployCommunityContracts() {
-    console.log("Deploying Contracts for Avalanche....");
+    console.log("Deploying Contracts for Pego....");
     let treasuryAddr;
     let communityAddr;
     try {
-        console.log("Deploying treasury for Avalanche");
+        console.log("Deploying treasury for Pego");
         treasuryAddr = await deployTreasury();
 
         const CommunityFactory = await ethers.getContractFactory("CommunityNetwork"/*, wallet*/);
 
-        console.log("Deploying Community contract for Avalanche");
+        console.log("Deploying Community contract for Pego");
         const community = await CommunityFactory.deploy(treasuryAddr);
         await community.deployed();
         communityAddr = community.address;
-        console.log("---- Community Contract for Avalanche was deployed to Avalanche testnet at this address: ---- ", community.address);
+        console.log("---- Community Contract for Pego was deployed to Pego testnet at this address: ---- ", community.address);
     }
     catch (error) {
-        console.error("Error deploying Community for Avalanche:", error);
+        console.error("Error deploying Community for Pego:", error);
         throw error;
     }
 
-    console.log("Deploying UserNFT for Avalanche....");
+    console.log("Deploying UserNFT for Pego....");
     let userNFT;
     try {
         userNFT = await deployUserNFT(communityAddr);
     }
     catch (error) {
-        console.error("Error User NFT for Avalanche:", error);
+        console.error("Error User NFT for Pego:", error);
         throw error;
     }
 
-    console.log("Deploying NutritionistNFT for Avalanche....");
+    console.log("Deploying NutritionistNFT for Pego....");
     let nutritionistNFT;
     try {
         nutritionistNFT = await deployNutritionistNFT(communityAddr);
     }
     catch (error) {
-        console.error("Error Nutritionist NFT for Avalanche:", error);
+        console.error("Error Nutritionist NFT for Pego:", error);
         throw error;
     }
 }
 
 // async function verifyContract() {
 
-//     console.log(`Verifying nutritionistNFT contract for Avalanche...`);
+//     console.log(`Verifying nutritionistNFT contract for Pego...`);
 
 //     try {
 //         await run("verify:verify", {

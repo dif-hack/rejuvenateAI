@@ -51,12 +51,12 @@ const RegisterForm = ({
 }) => {
   //const auth = useAuth()
   const { address } = useAccount();
-
+ 
   const toast = useToast({
-    duration: 3000,
-    position: 'top',
-    status: 'success',
-    title: 'Sign up was successful',
+    //duration: 3000,
+    //position: 'top',
+    //status: 'success',
+    //title: 'Sign up was successful',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();

@@ -1,11 +1,11 @@
-# RejuvenateAI x ChainLink hack 
+# RejuvenateAI x Pego hack 
 
 Live Demo - [Youtube video](https://youtu.be/u9oClURPhUY) <br />
-Live Link - [RejuvenateAI dapp](https://rejuvenate-ai-chainlink.vercel.app/) <br />
+Live Link - [RejuvenateAI dapp](https://rejuvenate-ai-igwn.vercel.app/) <br />
 
 ## ✨ Description
 
-[RejuvenateAI](https://rejuvenate-ai-chainlink.vercel.app/) is the first community blockchain based project powered by community built for community to promote healthy living and achieve  healthy locations where people live up to a 100 years all around the world. We are trying to make sure people live healthy by incorporating healthy habits into their lifestyle and trying to make sure they get the most out of the human experience by discovering their purpose if they haven't already and enjoying this life, all while doing it together as a community being accountable to each other.
+[RejuvenateAI](https://rejuvenate-ai-igwn.vercel.app/) is the first community blockchain based project powered by community built for community to promote healthy living and achieve  healthy locations where people live up to a 100 years all around the world. We are trying to make sure people live healthy by incorporating healthy habits into their lifestyle and trying to make sure they get the most out of the human experience by discovering their purpose if they haven't already and enjoying this life, all while doing it together as a community being accountable to each other.
 
 ## Inspiration
 
@@ -34,23 +34,21 @@ Here's a breakdown of how it was built:
 
 4. Now these nutritionists can now create meal plans by calling ``createMealPlans`` which will create meal plans for users to access.
 
-5. When a user's subscription expires, their subscription status automatically expires and their access to our platform gets revoked and their user NFT gets burned automatically, this functionality is enabled by chainlink automation which calls the ``revokeUser`` function when their deadline elapses, they still remain members of our platform just that they can't access our services until they renew their subscription and they can now mint another user NFT
-
-6. Users can join communities and chat in these communities, the chat feature is powered by push protocol, there are also ongoing challenges and events going on in communities.
+5. Users can join communities and chat in these communities, the chat feature is powered by push protocol, there are also ongoing challenges and events going on in communities.
 
 
 ## Where we deployed to/contract details
 
-We created and deployed our smart contracts on the Avalanche fuji testnet chain. 
+We created and deployed our smart contracts on the Pego mainnet chain. 
 
-### Avalanche Testnet
+### Pego Mainnet
 
-1. CommunityNetwork contract 0x3A3bc7C19bE0381294d8E7Bd311C123b76b33982 - [View source code](https://github.com/degencodebeast/RejuvenateAI-chainlink/blob/main/smart-contracts/contracts/CommunityNetwork.sol) | [View on Avalanche](https://testnet.snowtrace.io/address/0x3A3bc7C19bE0381294d8E7Bd311C123b76b33982)
+1. CommunityNetwork contract 0x3a65168B746766066288B83417329a7F901b5569 - [View source code](https://github.com/pego-hack/rejuvenateAI/blob/main/smart-contracts/contracts/CommunityNetwork.sol) | [View on Pego](https://scan.pego.network/address/0x3a65168B746766066288B83417329a7F901b5569)
 
-2. Treasury contract 0xdf2f1C4d00dF9b3b4c243d064D08F4B3FB6ede3E - [View source code](https://github.com/degencodebeast/RejuvenateAI-chainlink/blob/main/smart-contracts/contracts/Treasury.sol) | [View on Avalanche](https://testnet.snowtrace.io/address/0xdf2f1C4d00dF9b3b4c243d064D08F4B3FB6ede3E)
+2. Treasury contract 0x9E1eF5A92C9Bf97460Cd00C0105979153EA45b27 - [View source code](https://github.com/pego-hack/rejuvenateAI/blob/main/smart-contracts/contracts/Treasury.sol) | [View on Pego](https://scan.pego.network/address/0x9E1eF5A92C9Bf97460Cd00C0105979153EA45b27)
 
-3. User NFT contract 0x8E4508Dc5f0E17767C7c5b364cD4ee4f33e6C2e2 - [View source code](https://github.com/degencodebeast/RejuvenateAI-chainlink/blob/main/smart-contracts/contracts/UserNFT.sol) | [View on Avalanche](https://testnet.snowtrace.io/address/0x8E4508Dc5f0E17767C7c5b364cD4ee4f33e6C2e2)
+3. User NFT contract 0x6D919b8dC30BEf41b56Aa8b18b2052c9459F8E9A - [View source code](https://github.com/pego-hack/rejuvenateAI/blob/main/smart-contracts/contracts/UserNFT.sol) | [View on Pego](https://scan.pego.network/address/0x6D919b8dC30BEf41b56Aa8b18b2052c9459F8E9A)
 
-4. Nutritionist NFT contract 0xE3B57b2d4b7CdF04024CE1C26488C6A4Ea561df8 - [View source code](https://github.com/degencodebeast/RejuvenateAI-chainlink/blob/main/smart-contracts/contracts/NutritionistNFT.sol) | [View on Avalanche](https://testnet.snowtrace.io/address/0xE3B57b2d4b7CdF04024CE1C26488C6A4Ea561df8)
+4. Nutritionist NFT contract 0xA39d26482B5c226Fd02A5f3e159C72ee03d63Fc0 - [View source code](https://github.com/pego-hack/rejuvenateAI/blob/main/smart-contracts/contracts/NutritionistNFT.sol) | [View on Pego](https://scan.pego.network/address/0xA39d26482B5c226Fd02A5f3e159C72ee03d63Fc0)
 
 

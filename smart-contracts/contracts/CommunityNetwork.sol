@@ -27,7 +27,6 @@ error InvalidDeadline();
 error InvalidSubStatus();
 
 contract CommunityNetwork is Ownable {
-
     using Counters for Counters.Counter;
 
     Counters.Counter private _applicantIndexCounter;
@@ -160,9 +159,7 @@ contract CommunityNetwork is Ownable {
 
     Articles[] public allArticles;
 
-    constructor(
-        address _treasury
-    ) {
+    constructor(address _treasury) {
         treasury = _treasury;
         communityIdCounter.increment();
     }
@@ -526,6 +523,22 @@ contract CommunityNetwork is Ownable {
     function joinCommunity(uint256 _communityId) public {
         Community memory _community = idToCommunity[_communityId];
         userToCommunity[msg.sender] = _community;
+    }
+
+    function getNutritionistApplicantStatus(
+        address _applicant
+    ) public view returns (NutritionistApplicationStatus) {
+        return nutritionistApplicationStatus[_applicant];
+    }
+
+    function checkIsMember(address _user) public view returns (bool) {
+        return isMember[_user];
+    }
+
+    function checkIsNutritionist(
+        address _nutritionist
+    ) public view returns (bool) {
+        return isNutritionist[_nutritionist];
     }
 
     function getAllCommunties() public view returns (Community[] memory) {

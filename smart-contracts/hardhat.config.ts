@@ -116,6 +116,11 @@ const config: HardhatUserConfig = {
       chainId: 1440002,
       accounts: [`${process.env.PRIVATE_KEY}`],
     },
+    pego: {
+      url: "https://pegorpc.com",
+      chainId: 20201022,
+      accounts: [`${process.env.PRIVATE_KEY}`],
+    },
   },
   typechain: {
     target: "ethers-v5"
