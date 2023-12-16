@@ -41,7 +41,7 @@ import { putJSONandGetHash } from '@/helpers';
 import { useDebounce } from '@/hooks/useDebounce';
 import { communityAbi } from '../../../abis';
 import { communityAddr } from '@/utils/constants';
-
+import { writeContract, readContract,waitForTransaction } from "@wagmi/core";
 const RegisterForm = ({
   isOpen,
   onClose,
@@ -93,26 +93,69 @@ const RegisterForm = ({
   // get functions to build form with useForm() hook
   const { errors, isValid, isSubmitSuccessful } = formState;
   const [cid, setCid] = useState<string>('');
+  const [isRegistered, setIsRegistered] = useState(false);
+  
+  // const { config } = usePrepareContractWrite({
+  //   //@ts-ignore
+  //   address: communityAddr,
+  //   abi: communityAbi,
+  //   functionName: 'registerUser',
+  //   args: [cid, allTokensData.userNftUri],
+  //   //@ts-ignore
+  //   value: ethers.utils.parseEther(debouncedAmount || '0'),
+  // });
 
-  const { config } = usePrepareContractWrite({
-    //@ts-ignore
-    address: communityAddr,
-    abi: communityAbi,
-    functionName: 'registerUser',
-    args: [cid, allTokensData.userNftUri],
-    //@ts-ignore
-    value: ethers.utils.parseEther(debouncedAmount || '0'),
-  });
+  // const { write: registerUser, data } = useContractWrite(config);
 
-  const { write: registerUser, data } = useContractWrite(config);
+  // const { isLoading } = useWaitForTransaction({
+  //   hash: data?.hash,
+  //   onSuccess(tx) {
+  //     console.log(tx);
+  //     router.push('/member/dashboard');
+  //   },
+  // });
 
-  const { isLoading } = useWaitForTransaction({
-    hash: data?.hash,
-    onSuccess(tx) {
-      console.log(tx);
-      router.push('/member/dashboard');
-    },
-  });
+  
+  const registerAccount = async() => {
+    const {hash}: any = await writeContract({
+      address: communityAddr,
+      abi: communityAbi,
+      functionName: 'registerUser',
+      args: [cid, allTokensData.userNftUri],
+      value: ethers.utils.parseEther(debouncedAmount || '0') as unknown as bigint,
+    });
+    const receipt = await waitForTransaction({ hash });
+    if(receipt) {
+      fulfillRegistration();
+    }
+    else{
+      toast({
+            status: 'error',
+            title: 'Registration failed',
+          });
+    }
+    
+    // if (!receipt) {
+    //   toast({
+    //     status: 'error',
+    //     title: 'Registration failed',
+    //   });
+    //   return;
+    // }
+    return;
+  }
+
+  const fulfillRegistration = async() => {
+    setIsRegistered(true);
+   
+    //toast.success("Registration successful!");
+    toast({
+      status: 'success',
+      title: 'Registration successful',
+    });
+    router.push('/member/dashboard');
+  }
+
 
   const onInvalidSubmit: SubmitErrorHandler<FieldValues> = (errors: any) => {
     if (!isValid) {
@@ -159,7 +202,9 @@ const RegisterForm = ({
           name: data.fullName,
         });
 
-        registerUser?.();
+        //registerUser?.();
+
+        registerAccount();
 
         toast();
         reset();
